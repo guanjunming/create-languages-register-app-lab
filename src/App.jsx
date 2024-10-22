@@ -1,7 +1,25 @@
+import { useState } from "react";
 import "./App.css";
+import NavBar from "./components/NavBar";
+import LanguagesPanel from "./components/LanguagesPanel";
+import UsersPanel from "./components/UsersPanel";
 
 const App = () => {
-  return <h1>Hello world!</h1>;
+  const [selectedTab, setSelectedTab] = useState("languages");
+
+  const handleSelectTab = (tab) => {
+    if (selectedTab != tab) {
+      setSelectedTab(tab);
+    }
+  };
+
+  return (
+    <>
+      <NavBar onSelectTab={handleSelectTab} selectedTab={selectedTab} />
+      {selectedTab === "languages" && <LanguagesPanel />}
+      {selectedTab === "users" && <UsersPanel />}
+    </>
+  );
 };
 
 export default App;
