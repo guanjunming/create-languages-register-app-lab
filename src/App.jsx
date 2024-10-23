@@ -1,9 +1,8 @@
 import { useState } from "react";
-import "./App.css";
-import NavBar from "./components/NavBar";
-import LanguagesPanel from "./components/LanguagesPanel";
-import UsersPanel from "./components/UsersPanel";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import NavBar from "./components/NavBar";
+import LanguagesSection from "./components/LanguagesSection";
+import UsersSection from "./components/UsersSection";
 
 const queryClient = new QueryClient();
 
@@ -19,8 +18,8 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <NavBar onSelectTab={handleSelectTab} selectedTab={selectedTab} />
-      {selectedTab === "languages" && <LanguagesPanel />}
-      {selectedTab === "users" && <UsersPanel />}
+      {selectedTab === "languages" && <LanguagesSection />}
+      {selectedTab === "users" && <UsersSection />}
     </QueryClientProvider>
   );
 };

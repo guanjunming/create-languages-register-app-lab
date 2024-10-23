@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import Input from "./Input";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addUser, updateUser } from "../api/http";
+import Input from "./Input";
 
 const UserForm = ({ user, onModalClose }) => {
   const queryClient = useQueryClient();
@@ -48,7 +48,7 @@ const UserForm = ({ user, onModalClose }) => {
         type="number"
         name="age"
         label="Age"
-        defaultValue={user?.age || ""}
+        defaultValue={user?.age || "0"}
       />
       <Input
         ref={countryRef}

@@ -4,7 +4,7 @@ import { getAllUsers } from "../api/http";
 import Modal from "./Modal";
 import UserForm from "./UserForm";
 import UserRow from "./UserRow";
-import UserLanguagePanel from "./UserLanguagePanel";
+import UserLanguageSection from "./UserLanguageSection";
 
 const UsersPanel = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -40,7 +40,7 @@ const UsersPanel = () => {
       )}
 
       {viewUserLang ? (
-        <UserLanguagePanel
+        <UserLanguageSection
           user={viewUserLang}
           setViewUserLang={setViewUserLang}
         />

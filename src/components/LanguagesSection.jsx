@@ -1,9 +1,9 @@
 import { useState } from "react";
-import LanguageForm from "./LanguageForm";
-import Modal from "./Modal";
-import LanguageItem from "./LanguageItem";
-import { deleteLanguage, getLanguages } from "../api/http";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { deleteLanguage, getLanguages } from "../api/http";
+import Modal from "./Modal";
+import LanguageForm from "./LanguageForm";
+import LanguageItem from "./LanguageItem";
 
 const LanguagesPanel = () => {
   const queryClient = useQueryClient();
@@ -60,4 +60,5 @@ const LanguagesPanel = () => {
     </>
   );
 };
+
 export default LanguagesPanel;
