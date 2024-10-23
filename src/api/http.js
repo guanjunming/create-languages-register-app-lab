@@ -98,3 +98,64 @@ export const updateUser = async (userData) => {
     throw new Error("Error updating user");
   }
 };
+
+export const getLanguagesByUser = async (userId) => {
+  const res = await fetch(
+    import.meta.env.VITE_SERVER + "/lab/users/languages",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: userId,
+      }),
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Error fetching languages for userId: " + userId);
+  }
+
+  return await res.json();
+};
+
+export const addLanguageByUser = async ({ userId, language }) => {
+  const res = await fetch(
+    import.meta.env.VITE_SERVER + "/lab/users/languages",
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        language: language,
+      }),
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Error adding language for userId: " + userId);
+  }
+};
+
+export const deleteLanguageByUser = async ({ userId, language }) => {
+  const res = await fetch(
+    import.meta.env.VITE_SERVER + "/lab/users/languages",
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        language: language,
+      }),
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Error deleting language for userId: " + userId);
+  }
+};

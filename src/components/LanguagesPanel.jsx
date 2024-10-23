@@ -2,15 +2,23 @@ import { useState } from "react";
 import LanguageForm from "./LanguageForm";
 import Modal from "./Modal";
 import LanguageItem from "./LanguageItem";
-import { getLanguages } from "../api/http";
-import { useQuery } from "@tanstack/react-query";
+import { deleteLanguage, getLanguages } from "../api/http";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const LanguagesPanel = () => {
+  const queryClient = useQueryClient();
   const [modalOpen, setModalOpen] = useState(false);
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["languages"],
     queryFn: getLanguages,
+  });
+
+  const { mutate } = useMutation({
+    mutationFn: deleteLanguage,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["languages"] });
+    },
   });
 
   return (
@@ -40,7 +48,11 @@ const LanguagesPanel = () => {
         {data && (
           <ul className="divide-y divide-gray-200">
             {data.map((entry) => (
-              <LanguageItem key={entry.language} language={entry.language} />
+              <LanguageItem
+                key={entry.language}
+                language={entry.language}
+                onDelete={() => mutate(entry.language)}
+              />
             ))}
           </ul>
         )}

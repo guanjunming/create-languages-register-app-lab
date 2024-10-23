@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteUser } from "../api/http";
 
-const UserRow = ({ user, onUpdate }) => {
+const UserRow = ({ user, onUpdate, setViewUserLang }) => {
   const queryClient = useQueryClient();
 
   const { mutate, isPending } = useMutation({
@@ -31,6 +31,12 @@ const UserRow = ({ user, onUpdate }) => {
               onClick={() => mutate(user.id)}
             >
               Delete
+            </button>
+            <button
+              className="px-4 py-2 rounded-md bg-gray-900 text-white shadow-sm hover:bg-gray-600"
+              onClick={() => setViewUserLang(user)}
+            >
+              Languages
             </button>
           </div>
         )}
