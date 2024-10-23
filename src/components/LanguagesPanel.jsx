@@ -18,7 +18,7 @@ const LanguagesPanel = () => {
       {modalOpen && (
         <Modal>
           <h2 className="text-xl font-bold text-gray-900 mt-2">
-            Add new language
+            Add New Language
           </h2>
           <LanguageForm setModalOpen={setModalOpen} />
         </Modal>

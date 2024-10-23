@@ -26,7 +26,7 @@ const LanguageForm = ({ setModalOpen }) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-96">
-      <Input ref={languageRef} text="text" name="language" label="Language" />
+      <Input ref={languageRef} type="text" name="language" label="Language" />
       <div className="flex justify-end gap-3">
         <button
           type="button"
