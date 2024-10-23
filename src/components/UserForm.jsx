@@ -60,14 +60,14 @@ const UserForm = ({ user, onModalClose }) => {
       <div className="flex justify-end gap-3">
         <button
           type="button"
-          className="px-3 py-2 rounded-md bg-indigo-600 text-white shadow-sm hover:bg-indigo-500"
+          className="px-3 py-2 rounded-md bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
           onClick={onModalClose}
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="px-3 py-2 rounded-md bg-indigo-600 text-white shadow-sm hover:bg-indigo-500"
+          className="px-5 py-2 rounded-md bg-indigo-600 text-white shadow-sm hover:bg-indigo-500"
         >
           Save
         </button>
